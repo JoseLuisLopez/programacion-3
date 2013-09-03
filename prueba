@@ -1,1 +1,36 @@
-bjdsv jknsdknvdskmc, 
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+    int vec[5] = { 1, 8, 2, 3, 6};
+    int apE[5] = {7, 6, 4, 9, 12};
+
+
+    double aPe = vec[5];
+
+
+
+    int i =1, j=5;
+
+
+
+    cout << vec[j]++ * vec[i++] << endl;
+    cout << *(vec + j)  *  *(vec + i++) << endl;
+
+    cout << *(vec + 5) << endl;
+    for(int i = 0; i < 8; i++) {
+        cout << "(apE + " << i << "): ";
+        cin >> apE[i];
+        cin >> vec[j];
+    }
+
+    for(int i= 0; i < 8; i++)
+        cout << apE[ i ] << endl;
+
+   cout <<"apE" << "=" << vec[5] << endl;
+
+    return EXIT_SUCCESS;
+
+}
+
