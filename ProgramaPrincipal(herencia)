@@ -1,0 +1,19 @@
+using System;
+ public class A 
+    {
+        public virtual void Metodo()
+        {
+            Console.WriteLine("hola metodo en A");
+            Console.ReadKey();
+        }
+    }
+  
+   public class B : A 
+   {
+       public override void Metodo()
+      {
+          Console.WriteLine("hola metodo en B..");
+          Console.ReadKey();
+      }
+       
+  }
