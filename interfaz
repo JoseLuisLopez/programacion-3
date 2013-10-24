@@ -1,0 +1,47 @@
+
+using System;
+
+public class Sesion
+
+
+{
+
+	public  void Main()
+    {
+		string usuario;
+
+		int login, contraseña;
+        
+		do
+		{
+			Console.WriteLine("teclee su usuario");
+
+			usuario = Console.ReadLine();
+
+			Console.WriteLine("teclee su contraseña");
+            login= Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("vuelva a teclear su contraseña");
+
+
+			contraseña = Convert.ToInt32(Console.ReadLine());
+
+			if (login != contraseña)
+
+				Console.WriteLine("Contraseña incoreecta");
+
+		}
+
+
+		while (login != contraseña);
+
+
+		Console.WriteLine("contraseña correcta");
+
+		{
+
+          Console.ReadLine();
+
+
+		}
+	}
+}
