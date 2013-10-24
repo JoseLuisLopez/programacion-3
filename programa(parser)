@@ -1,0 +1,116 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CVSParser
+{
+	class parser
+	{
+		private string @filePath;
+
+		public void parseFile()
+		{
+			readFile();
+			verifyFileType();
+		}
+
+		private void readFile()
+		{
+			Console.Write("\nEscribe la ruta completa del archivo csv\n");
+			this.filePath = Console.ReadLine();
+		}
+
+		public void verifyFileType()
+		{
+
+			if (File.Exists(this.filePath))
+			{
+				if (Path.GetExtension(this.filePath) == ".csv")
+				{
+					getFileContent();
+				}
+				else
+				{
+					Console.WriteLine("\n\nDisculpa " + Path.GetExtension(this.filePath) + " este archivo no esta permitido\n");
+					Console.ReadKey();
+					Console.Clear();
+					readFile();
+				}
+			}
+			else
+			{
+				Console.WriteLine("\n\nDisculpa " + this.filePath + " el archivo no existe\n");
+				Console.ReadKey();
+				Console.Clear();
+				readFile();
+			}
+		}
+
+		public Boolean verifyFile()
+		{
+
+			if (File.Exists(this.filePath))
+				return true;
+			else
+				return false;
+
+		}
+		
+		private void getFileContent()
+		{
+			List<string[]> csvArray = new List<string[]>();
+			string line;
+			string[] row;
+
+			try
+			{
+				StreamReader readFile = new StreamReader(this.filePath);
+				while ((line = readFile.ReadLine()) != null)
+				{
+					row = line.Split(',');
+					csvArray.Add(row);
+				}
+			}
+			catch (FileNotFoundException e)
+			{
+				Console.WriteLine(e.Message);
+			}
+
+			printInformation(csvArray);
+		}
+
+		private void printInformation(List<string[]> csvArray)
+		{
+			string delimiter = "\n\n";
+
+			Console.Clear();
+			Console.WriteLine("\n El archivo contiene la informacion(" + this.filePath + "): \n");
+
+			foreach (string[] array in csvArray)
+			{
+				if (array.Length > 0)
+				{
+					Console.WriteLine("Id:" + array[0]);
+				}
+				if (array.Length > 1)
+				{
+					Console.WriteLine("Nombre:" + array[1]);
+				}
+				if (array.Length > 2)
+				{
+					Console.WriteLine("Direccion:" + arra[2]);
+				}
+				if (array.Length > 3)
+				{
+					Console.WriteLine("Telefono:" + array[3]);
+				}
+
+				
+			}
+
+		}}
+
+}
